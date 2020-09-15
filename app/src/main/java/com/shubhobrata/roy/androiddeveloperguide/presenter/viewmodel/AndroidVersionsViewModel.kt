@@ -1,17 +1,16 @@
 package com.shubhobrata.roy.androiddeveloperguide.presenter.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.shubhobrata.roy.androiddeveloperguide.domain.usecase.AndroidVersionsUseCase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class AndroidVersionsViewModel(private val app: Application) : AndroidViewModel(app) {
-
-    private val androidVersionsUseCase by lazy { AndroidVersionsUseCase() }
+class AndroidVersionsViewModel @ViewModelInject constructor(
+    private val androidVersionsUseCase: AndroidVersionsUseCase
+) : ViewModel() {
 
 
     val currentOSVersionCode = MutableLiveData<Int>()

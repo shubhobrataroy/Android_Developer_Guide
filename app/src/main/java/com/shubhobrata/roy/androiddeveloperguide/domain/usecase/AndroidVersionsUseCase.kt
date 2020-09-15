@@ -1,11 +1,13 @@
 package com.shubhobrata.roy.androiddeveloperguide.domain.usecase
 
-import com.shubhobrata.roy.androiddeveloperguide.data.MockInfoRepositoryImpl
 import com.shubhobrata.roy.androiddeveloperguide.domain.repository.AndroidInfoRepository
+import javax.inject.Inject
 
-class AndroidVersionsUseCase {
-    //TODO We will implement DI soon
-    private val androidVersionRepository by lazy { MockInfoRepositoryImpl() as AndroidInfoRepository }
+
+class AndroidVersionsUseCase @Inject constructor() {
+
+    @Inject
+    lateinit var androidVersionRepository: AndroidInfoRepository
 
 
     suspend fun getCurrentAndroidVersionName() =

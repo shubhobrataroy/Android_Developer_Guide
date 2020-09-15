@@ -1,17 +1,18 @@
 package com.shubhobrata.roy.androiddeveloperguide.presenter.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.AndroidViewModel
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.shubhobrata.roy.androiddeveloperguide.R
 import com.shubhobrata.roy.androiddeveloperguide.presenter.viewmodel.AndroidVersionsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    val viewModelModel by lazy { ViewModelProvider(this)[AndroidVersionsViewModel::class.java] }
+
+    val viewModelModel: AndroidVersionsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initUi()
-    {
+    private fun initUi() {
 
     }
 }
