@@ -8,6 +8,9 @@ class MockInfoRepositoryImpl : AndroidInfoRepository {
     }
 
     override fun getLatestAndroidVersion(): Pair<String, Int> = "Pie" to 29
+    override fun getNameByVersionCode(versionCode: Int): String {
+        return ""
+    }
 
 
 }

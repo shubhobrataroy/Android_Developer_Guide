@@ -6,4 +6,5 @@ interface AndroidInfoRepository {
 
     fun getLatestAndroidVersion() : Pair<String, Int>
 
+    fun getNameByVersionCode(versionCode:Int) : String
 }

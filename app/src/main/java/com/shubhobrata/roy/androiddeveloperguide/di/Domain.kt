@@ -1,6 +1,7 @@
 package com.shubhobrata.roy.androiddeveloperguide.di
 
 import android.content.Context
+import com.shubhobrata.roy.androiddeveloperguide.data.AndroidInfoRepositoryImpl
 import com.shubhobrata.roy.androiddeveloperguide.data.MockInfoRepositoryImpl
 import com.shubhobrata.roy.androiddeveloperguide.domain.repository.AndroidInfoRepository
 import dagger.Module
@@ -18,5 +19,5 @@ class Domain {
     @Provides
     fun provideAndroidInfoRepo(@ApplicationContext context: Context): AndroidInfoRepository =
 //        AndroidInfoRepositoryImpl(context)
-        MockInfoRepositoryImpl()
+        AndroidInfoRepositoryImpl(context)
 }
