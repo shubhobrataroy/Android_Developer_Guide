@@ -5,18 +5,18 @@ import com.shubhobrata.roy.androiddeveloperguide.domain.repository.AndroidInfoRe
 import javax.inject.Inject
 
 
-class AndroidVersionsUseCase @Inject constructor() {
+class AndroidVersionsUseCase @Inject constructor(val androidVersionRepository: AndroidInfoRepository) {
 
-    @Inject
-    lateinit var androidVersionRepository: AndroidInfoRepository
+    init {
+        androidVersionRepository
+    }
 
-
-    fun getCurrentAndroidVersion() =  androidVersionRepository.getLatestAndroidVersion().run {
-        AndroidVersionInfo(first,second)
+    fun getCurrentAndroidVersion() = androidVersionRepository.getLatestAndroidVersion().run {
+        AndroidVersionInfo(first, second)
     }
 
     fun getAllAndroidVersions() = androidVersionRepository.getAllAndroidVersions().map {
-        AndroidVersionInfo(it.first,it.second)
+        AndroidVersionInfo(it.first, it.second)
     }
 
 }
